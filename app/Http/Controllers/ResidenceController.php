@@ -79,7 +79,7 @@ class ResidenceController extends Controller
             'gender'         => 'required|in:Male,Female,Other',
             'age'            => 'required|integer|min:0|max:120',
             'contactNumber'  => 'required|regex:/^([0-9]{11})$/',
-            'email'          => 'required|email|unique:residences,email',
+            'email'          => 'required|email',
         ]);
         $residence = Residence::find($id);
         $residence->update($request->all());

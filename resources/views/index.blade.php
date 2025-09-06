@@ -11,11 +11,13 @@
 </head>
 
 <body>
-    <h1 class="text-2xl font-thin">Barangay Residence</h1>
-    <a href="{{ route('create') }}">
-        <button class="border bg-emerald-500 mb-3 text-white py-2 px-4 rounded-md hover:bg-emerald-600 ">Add new
-            Residence</button>
-    </a>
+    <nav class="flex px-5 py-5">
+        <h1 class="flex-1 text-2xl font-thin">Barangay Residence Management System</h1>
+        <a href="{{ route('create') }}">
+            <button class="border bg-emerald-500 mb-3 text-white py-2 px-4 rounded-md hover:bg-emerald-600 ">Add new
+                Residence</button>
+        </a>
+    </nav>
     <div class="px-5">
         <table class="border-collapse table-auto w-full">
             <tr>
@@ -30,7 +32,7 @@
                 <th class="bg-gray-500 text-white py-3">Option</th>
             </tr>
             @foreach ($residence as $tbl_residents )
-                <tr >
+                <tr class="border-y">
                     <td class="bg-gray-300 text-center py-1">{{ $tbl_residents->firstName }}</td>
                     <td class="bg-gray-300 text-center py-1">{{ $tbl_residents->middleName }}</td>
                     <td class="bg-gray-300 text-center py-1">{{ $tbl_residents->lastName }}</td>
