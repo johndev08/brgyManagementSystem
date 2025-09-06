@@ -45,7 +45,7 @@ class ResidenceController extends Controller
             'email'          => 'required|email|unique:residences,email',
         ]);
         Residence::create($request->all());
-        return redirect()->route('index')->with('success','residents added successfully');
+        return redirect()->route('index')->with('success', 'residents added successfully');
     }
 
     /**
@@ -63,17 +63,27 @@ class ResidenceController extends Controller
     {
         //
         $residence = Residence::find($id);
-        return view('edit', compact('residence')); 
+        return view('edit', compact('residence'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        //
-        // $residence = Residence::find($id);
-        // return view('update', compact('residence')); 
+        $request->validate([
+            'firstName'      => 'required|string|min:2|max:50',
+            'middleName'     => 'nullable|string|max:50',
+            'lastName'       => 'required|string|max:50',
+            'birthDate'      => 'required|date|before:today',
+            'gender'         => 'required|in:Male,Female,Other',
+            'age'            => 'required|integer|min:0|max:120',
+            'contactNumber'  => 'required|regex:/^([0-9]{11})$/',
+            'email'          => 'required|email|unique:residences,email',
+        ]);
+        $request = Residence::find($id);
+        $request->update($request->all());
+        return redirect()->route('index')->with('success', 'User updated successfully.');
     }
 
     /**

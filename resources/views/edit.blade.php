@@ -12,12 +12,13 @@
 <body>
     <form action="{{ route('update', $residence->id) }}" method="post">
         @csrf
-
+        @method('PUT')
         <h1 class="text-xl">Edit
             <span class="font-bold">{{ $residence->firstName }}'s</span> Credentials
         </h1>
         <label for="fistName">First Name:</label><br>
-        <input type="text" name="firstName" id="firstName" class="border" value="{{ $residence->firstName }}"><br>
+        <input type="text" name="firstName" id="firstName" class="border"
+            value="{{ old('middleName', $residence->firstName) }}"><br>
 
         <label for="middleName">Middle Name:</label><br>
         <input type="text" name="middleName" id="middleName" class="border" value="{{ $residence->middleName }}"><br>
@@ -31,9 +32,9 @@
         <label for="gender">Gender:</label><br>
 
         <select name="gender" id="gender" class="border">
-            <option value="male" {{ $residence->gender === 'Male' ? 'selected' : '' }}>Male</option>
-            <option value="female"{{ $residence->gender === 'Female' ? 'selected' : '' }}>Female</option>
-            <option value="other"{{ $residence->gender === 'Other' ? 'selected' : '' }}>Other</option>
+            <option value="Male" {{ $residence->gender === 'Male' ? 'selected' : '' }}>Male</option>
+            <option value="Female"{{ $residence->gender === 'Female' ? 'selected' : '' }}>Female</option>
+            <option value="Other"{{ $residence->gender === 'Other' ? 'selected' : '' }}>Other</option>
         </select><br>
 
 
@@ -41,12 +42,17 @@
         <input type="text" name="age" id="age" class="border" value="{{ $residence->age }}"><br>
 
         <label for="contactNumber">Contact Number:</label><br>
-        <input type="number" name="contactNumber" id="contactNumber" class="border" value="{{ $residence->contactNumber }}"><br>
+        <input type="number" name="contactNumber" id="contactNumber" class="border"
+            value="{{ $residence->contactNumber }}"><br>
 
         <label for="email">Email Address:</label><br>
         <input type="emaial" name="email" id="email" class="border" value="{{ $residence->email }}"><br>
         <input type="submit" value="Submit"
             class="rounded-md mt-2 py-2 px-4 bg-green-500 hover:bg-green-600 text-white">
+        <a href="{{ route('index') }}">
+            <button type="button"
+                class="bg-amber-500 py-2 px-2 rounded-md text-white hover:bg-amber-600">Cancel</button>
+        </a>
     </form>
 
     @if ($errors->any())
