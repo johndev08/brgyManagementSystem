@@ -42,12 +42,12 @@
                     <td class="bg-gray-300 text-center py-1 ">
                         <div class="flex justify-center gap-1">
                             <a href="{{ route('edit', $tbl_residents->id) }}">
-                                <button class="bg-blue-500 text-white py-1 px-2 rounded-md">Edit</button>
+                                <button class="bg-blue-500 hover:bg-blue-600 text-white py-1 px-2 rounded-md">Edit</button>
                             </a>
                             <form action="{{ route('delete', $tbl_residents->id) }}" method="post">
                                 @csrf
                                 @method("DELETE")
-                                <input type="submit" class="bg-red-500 text-white py-1 px-2 rounded-md" value="Delete">
+                                <input type="submit" class="bg-red-500 hover:bg-red-600 text-white py-1 px-2 rounded-md" value="Delete">
                             </form>
                         </div>
                     </td>  

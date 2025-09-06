@@ -81,8 +81,8 @@ class ResidenceController extends Controller
             'contactNumber'  => 'required|regex:/^([0-9]{11})$/',
             'email'          => 'required|email|unique:residences,email',
         ]);
-        $request = Residence::find($id);
-        $request->update($request->all());
+        $residence = Residence::find($id);
+        $residence->update($request->all());
         return redirect()->route('index')->with('success', 'User updated successfully.');
     }
 
