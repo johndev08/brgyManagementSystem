@@ -21,13 +21,13 @@
             value="{{ old('middleName', $residence->firstName) }}"><br>
 
         <label for="middleName">Middle Name:</label><br>
-        <input type="text" name="middleName" id="middleName" class="border" value="{{ $residence->middleName }}"><br>
+        <input type="text" name="middleName" id="middleName" class="border" value="{{ old('middleName',$residence->middleName) }}"><br>
 
         <label for="lastName">Last Name:</label><br>
-        <input type="text" name="lastName" id="lastName" class="border" value="{{ $residence->lastName }}"><br>
+        <input type="text" name="lastName" id="lastName" class="border" value="{{ old('lastName',$residence->lastName) }}"><br>
 
         <label for="birthDate">Birth Date:</label><br>
-        <input type="date" name="birthDate" id="birthDate" class="border" value="{{ $residence->birthDate }}"><br>
+        <input type="date" name="birthDate" id="birthDate" class="border" value="{{ old('birthDate',$residence->birthDate) }}"><br>
 
         <label for="gender">Gender:</label><br>
 
@@ -39,14 +39,14 @@
 
 
         <label for="age">Age:</label><br>
-        <input type="text" name="age" id="age" class="border" value="{{ $residence->age }}"><br>
+        <input type="text" name="age" id="age" class="border" value="{{ old('age',$residence->age) }}"><br>
 
         <label for="contactNumber">Contact Number:</label><br>
         <input type="number" name="contactNumber" id="contactNumber" class="border"
-            value="{{ $residence->contactNumber }}"><br>
+            value="{{ old('contactNmuber',$residence->contactNumber) }}"><br>
 
         <label for="email">Email Address:</label><br>
-        <input type="emaial" name="email" id="email" class="border" value="{{ $residence->email }}"><br>
+        <input type="emaial" name="email" id="email" class="border" value="{{ old('email',$residence->email) }}"><br>
         <input type="submit" value="Submit"
             class="rounded-md mt-2 py-2 px-4 bg-green-500 hover:bg-green-600 text-white">
         <a href="{{ route('index') }}">
