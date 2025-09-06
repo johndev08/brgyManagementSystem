@@ -38,13 +38,13 @@
 
 
         <label for="age">Age:</label><br>
-        <input type="text" name="age" id="age" class="border" value=""><br>
+        <input type="text" name="age" id="age" class="border" value="{{ $residence->age }}"><br>
 
         <label for="contactNumber">Contact Number:</label><br>
-        <input type="number" name="contactNumber" id="contactNumber" class="border"><br>
+        <input type="number" name="contactNumber" id="contactNumber" class="border" value="{{ $residence->contactNumber }}"><br>
 
         <label for="email">Email Address:</label><br>
-        <input type="emaial" name="email" id="email" class="border"><br>
+        <input type="emaial" name="email" id="email" class="border" value="{{ $residence->email }}"><br>
         <input type="submit" value="Submit"
             class="rounded-md mt-2 py-2 px-4 bg-green-500 hover:bg-green-600 text-white">
     </form>
